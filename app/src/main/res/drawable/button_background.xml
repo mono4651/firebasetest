@@ -1,0 +1,14 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="5dp" /> <!-- 버튼의 모서리 둥글게 설정 -->
+            <solid android:color="#000000" />
+        </shape>
+    </item>
+    <item android:right="2dp" android:top="2dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="10dp" /> <!-- 그림자의 모서리 둥글게 설정 -->
+            <solid android:color="#ffffff" /> <!-- 그림자 색상 및 투명도 -->
+        </shape>
+    </item>
+</layer-list>

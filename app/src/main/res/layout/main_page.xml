@@ -1,0 +1,130 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bae">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="메뉴 버튼 클릭 혹은 위로 스크롤"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:textSize="20dp"/>
+
+    <SlidingDrawer
+        android:id="@+id/slidingDrawer1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:content="@+id/content"
+        android:handle="@+id/handle">
+
+        <android.widget.Button
+            android:id="@+id/handle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Menu" />
+
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#A9D8E6"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:id="@+id/teamInfo">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="선수단 정보"
+                    android:gravity="center" />
+
+            </LinearLayout>
+            <!-- 첫번째 레이아웃 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:id="@+id/teamRecord">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="경기 기록"
+                    android:gravity="center" />
+
+            </LinearLayout>
+            <!-- 두 번째 레이아웃 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:id="@+id/teamSchedule">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="팀 스케줄"
+                    android:gravity="center" />
+
+            </LinearLayout>
+            <!-- 세 번째 레이아웃 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:id="@+id/player_record">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="개인 순위"
+                    android:gravity="center" />
+
+            </LinearLayout>
+            <!-- 네 번째 레이아웃 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:id="@+id/gallery">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="갤러리"
+                    android:gravity="center" />
+
+            </LinearLayout>
+            <!-- 다섯 번째 레이아웃 -->
+
+        </LinearLayout>
+
+    </SlidingDrawer>
+</LinearLayout>

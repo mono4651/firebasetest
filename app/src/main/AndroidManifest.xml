@@ -13,13 +13,42 @@
         android:theme="@style/Theme.Firebasetest"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".FirstActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name=".MainActivity">
+        </activity>
+        <activity android:name=".SecondActivity">
+        </activity>
+
+        <activity android:name=".Gaip">
+        </activity>
+
+        <activity android:name=".Login">
+        </activity>
+
+        <activity android:name=".MainPage">
+        </activity>
+
+        <activity android:name=".PlayerRecord">
+        </activity>
+
+        <activity android:name=".TeamSchedule">
+        </activity>
+
+        <activity android:name=".TeamInfo">
+        </activity>
+
+        <activity android:name=".Gallery">
+        </activity>
+
+        <activity android:name=".TeamRecord">
         </activity>
     </application>
 
