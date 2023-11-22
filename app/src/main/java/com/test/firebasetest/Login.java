@@ -1,10 +1,15 @@
 package com.test.firebasetest;
 // MainActivity.java
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Login extends AppCompatActivity {
@@ -28,33 +33,44 @@ public class Login extends AppCompatActivity {
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                saveUserData();
+                login();
             }
         });
     }
 
-    private void saveUserData() {
+    private void login() {
         String userId = editTextUserId.getText().toString();
         String password = editTextPassword.getText().toString();
 
-        // 유효성 검사 (예: 빈 문자열 확인)
-
-        // 사용자 객체 생성
-        User user = new User(userId, password);
-
-        // Firestore에 사용자 정보 저장
-        db.collection("users")
+        // 입력된 아이디를 기준으로 회원 가입 데이터베이스에서 사용자 정보를 검색
+        db.collection("GaipInfo")
                 .document(userId)
-                .set(user)
-                .addOnSuccessListener(aVoid -> {
-                    // 성공적으로 저장되었을 때의 처리
-                    editTextUserId.setText("");
-                    editTextPassword.setText("");
-                    // 추가적인 로직을 여기에 추가할 수 있습니다.
+                .get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+                        // 해당 아이디의 사용자 정보를 가져옴
+                        User user = documentSnapshot.toObject(User.class);
+
+                        // 비밀번호 검증
+                        if (user.getPassword().equals(password)) {
+                            // 로그인 성공
+                            Toast.makeText(Login.this, "로그인 성공", Toast.LENGTH_SHORT).show();
+                            // 로그인 성공 후 처리할 로직을 추가할 수 있습니다.
+                            // 예를 들어, 메인 페이지로 이동하는 코드 등을 추가할 수 있습니다.
+                            Intent intent = new Intent(Login.this, MainPage.class);
+                            startActivity(intent);
+                        } else {
+                            // 비밀번호가 일치하지 않는 경우
+                            Toast.makeText(Login.this, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        // 해당 아이디의 사용자 정보가 존재하지 않는 경우
+                        Toast.makeText(Login.this, "아이디가 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
+                    }
                 })
                 .addOnFailureListener(e -> {
-                    // 저장 실패 시의 처리
-                    // 추가적인 로직을 여기에 추가할 수 있습니다.
+                    // 데이터베이스 접근 실패 등의 오류 처리
+                    Toast.makeText(Login.this, "로그인 실패", Toast.LENGTH_SHORT).show();
                 });
     }
 }
