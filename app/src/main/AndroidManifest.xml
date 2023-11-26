@@ -56,7 +56,7 @@
         <activity android:name=".ChkTeamInfo" />
         <activity android:name=".PlayerInsert" />
         <activity android:name=".TeamInsertData"/>
-        <activity android:name=".TeamInfo"/>
+        <activity android:name=".TeamRecordWrite"/>
     </application>
 
 </manifest>

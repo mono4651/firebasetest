@@ -25,7 +25,7 @@ public class MainPage extends AppCompatActivity {
         playerRecord = findViewById(R.id.player_record);
         gallery = findViewById(R.id.gallery);
         Intent intent = getIntent();
-        String userName = intent.getStringExtra("user_id");
+        String userName = intent.getStringExtra("userId");
 
         TextView textView = findViewById(R.id.test);
         textView.setText(userName);
@@ -65,7 +65,8 @@ public class MainPage extends AppCompatActivity {
         gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainPage.this, Gallery.class);
+                Intent intent = new Intent(MainPage.this, TeamRecordWrite.class);
+                intent.putExtra("userId",userName);
                 startActivity(intent);
             }
         });

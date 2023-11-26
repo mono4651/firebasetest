@@ -1,54 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="3"
+        android:layout_height="100dp"
         android:gravity="center">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="경기 기록하기"
-            android:textSize="24dp"/>
+            android:textSize="24dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/teamName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
         android:orientation="vertical"
-        android:gravity="center|top">
+        android:gravity="center_horizontal|top">
 
         <EditText
-            android:id="@+id/teamName"
+            android:id="@+id/AnotherTeam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="팀명을 입력하세요"
+            android:hint="상대팀 이름을 적어주세요"
             android:layout_margin="20dp"
             />
 
         <EditText
-            android:id="@+id/teamArea"
+            android:id="@+id/RecordDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="지역을 입력하세요"
+            android:hint="날짜를 적어주세요(예 5월 3일)"
             android:layout_margin="20dp"/>
 
         <EditText
-            android:id="@+id/playerName"
+            android:id="@+id/RecordScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="이름을 입력하세요"
+            android:hint="득점수를 적어주세요(예 3 : 2)"
             android:layout_margin="20dp"/>
 
         <EditText
-            android:id="@+id/playerAge"
+            android:id="@+id/RecordResult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="나이를 입력하세요"
+            android:hint="결과를 적어주세요"
+            android:layout_margin="20dp"/>
+
+        <EditText
+            android:id="@+id/RecordMVP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="MVP 이름을 적어주세요"
             android:layout_margin="20dp"/>
 
         <Button

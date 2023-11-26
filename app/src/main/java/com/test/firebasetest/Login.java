@@ -73,7 +73,7 @@ public class Login extends AppCompatActivity {
                             // 예를 들어, 메인 페이지로 이동하는 코드 등을 추가할 수 있습니다.
                             String id = documentSnapshot.getString("userId");
                             Intent intent = new Intent(Login.this, MainPage.class);
-                            intent.putExtra("user_id",id);
+                            intent.putExtra("userId",id);
                             startActivity(intent);
                         } else {
                             // 비밀번호가 일치하지 않는 경우
