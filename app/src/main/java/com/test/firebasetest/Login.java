@@ -11,6 +11,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -20,14 +23,13 @@ public class Login extends AppCompatActivity {
     private Button buttonSave, buttonExit;
 
     private FirebaseFirestore db;
-
+    private DocumentReference myRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
         db = FirebaseFirestore.getInstance();
-
         editTextUserId = findViewById(R.id.editTextUserId);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonSave = findViewById(R.id.buttonSave);
@@ -54,7 +56,6 @@ public class Login extends AppCompatActivity {
     private void login() {
         String userId = editTextUserId.getText().toString();
         String password = editTextPassword.getText().toString();
-
         // 입력된 아이디를 기준으로 회원 가입 데이터베이스에서 사용자 정보를 검색
         db.collection("GaipInfo")
                 .document(userId)
@@ -70,7 +71,9 @@ public class Login extends AppCompatActivity {
                             Toast.makeText(Login.this, "로그인 성공", Toast.LENGTH_SHORT).show();
                             // 로그인 성공 후 처리할 로직을 추가할 수 있습니다.
                             // 예를 들어, 메인 페이지로 이동하는 코드 등을 추가할 수 있습니다.
+                            String id = documentSnapshot.getString("userId");
                             Intent intent = new Intent(Login.this, MainPage.class);
+                            intent.putExtra("user_id",id);
                             startActivity(intent);
                         } else {
                             // 비밀번호가 일치하지 않는 경우

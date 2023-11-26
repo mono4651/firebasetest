@@ -24,7 +24,11 @@ public class MainPage extends AppCompatActivity {
         teamSchedule = findViewById(R.id.teamSchedule);
         playerRecord = findViewById(R.id.player_record);
         gallery = findViewById(R.id.gallery);
+        Intent intent = getIntent();
+        String userName = intent.getStringExtra("user_id");
 
+        TextView textView = findViewById(R.id.test);
+        textView.setText(userName);
         teamInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,6 +41,7 @@ public class MainPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainPage.this, TeamRecord.class);
+                intent.putExtra("userId",userName);
                 startActivity(intent);
             }
         });

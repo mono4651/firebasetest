@@ -12,6 +12,14 @@
         android:textColor="#ffffff"
         android:gravity="center"
         android:textSize="20dp"/>
+    <TextView
+        android:id="@+id/test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="id"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:textSize="50dp"/>
 
     <SlidingDrawer
         android:id="@+id/slidingDrawer1"

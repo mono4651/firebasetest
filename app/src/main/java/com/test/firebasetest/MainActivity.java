@@ -1,17 +1,22 @@
 package com.test.firebasetest;
 // MainActivity.java
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private EditText editTextUserId, editTextPassword;
     private Button buttonSave;
-
     private FirebaseFirestore db;
 
     @Override
@@ -24,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
         editTextUserId = findViewById(R.id.editTextUserId);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonSave = findViewById(R.id.buttonSave);
-
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,4 +61,5 @@ public class MainActivity extends AppCompatActivity {
                     // 추가적인 로직을 여기에 추가할 수 있습니다.
                 });
     }
+
 }
