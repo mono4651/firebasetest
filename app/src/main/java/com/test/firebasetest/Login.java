@@ -49,7 +49,7 @@ public class Login extends AppCompatActivity {
     }
 
     private void exit() {
-        Intent intent = new Intent(Login.this, MainActivity.class);
+        Intent intent = new Intent(Login.this, FirstActivity.class);
         startActivity(intent);
     }
 

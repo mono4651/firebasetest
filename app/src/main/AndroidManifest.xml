@@ -57,6 +57,8 @@
         <activity android:name=".PlayerInsert" />
         <activity android:name=".TeamInsertData"/>
         <activity android:name=".TeamRecordWrite"/>
+        <activity android:name=".TeamInfo_2"/>
+
     </application>
 
 </manifest>

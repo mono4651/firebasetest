@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class TeamRecordInfoAdapter extends RecyclerView.Adapter<TeamRecordInfoAdapter.ViewHolder> {
+public class TeamRecordInfoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<TeamRecordInsertData> TeamRecordList;
     private boolean showHeader; // 헤더를 보여줄지 여부를 저장하는 변수
@@ -24,36 +24,49 @@ public class TeamRecordInfoAdapter extends RecyclerView.Adapter<TeamRecordInfoAd
         this.showHeader = showHeader;
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        if (position == 0 && showHeader) {
+            return 0; // 0은 헤더를 의미
+        } else {
+            return 1; // 1은 일반 아이템을 의미
+        }
+    }
+
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_team_info, parent, false);
-        return new ViewHolder(view);
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        if (viewType == 0) { // 헤더 레이아웃 사용
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_header, parent, false);
+            return new HeaderViewHolder(view);
+        } else { // 일반 아이템 레이아웃 사용
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_team_info, parent, false);
+            return new ItemViewHolder(view);
+        }
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        // 헤더를 보여줄지 여부에 따라 데이터 표시 여부 결정
-        if (showHeader) {
-            if (position == 0) {
-                holder.textViewTeamName.setText("팀 이름");
-                holder.textViewTeamArea.setText("팀 지역");
-                holder.textScore.setText("스코어");
-                holder.textresult.setText("결과");
-                holder.textDate.setText("날짜");
-                return;
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        if (holder instanceof HeaderViewHolder) { // 헤더 ViewHolder인 경우
+            HeaderViewHolder headerHolder = (HeaderViewHolder) holder;
+            headerHolder.textViewAnotherTeam.setText("상대 팀");
+            headerHolder.textScore.setText("스코어");
+            headerHolder.textresult.setText("결과");
+            headerHolder.textDate.setText("날짜");
+            headerHolder.textViewMVP.setText("MVP");
+            return;
+        } else if (holder instanceof ItemViewHolder) { // 아이템 ViewHolder인 경우
+            if (showHeader) {
+                position--; // 헤더를 고려하여 position 조정
             }
-            position--; // 헤더를 제외한 아이템 위치 계산
+            ItemViewHolder itemHolder = (ItemViewHolder) holder;
+            TeamRecordInsertData TeamRecordData = TeamRecordList.get(position);
+            itemHolder.textViewAnotherTeam.setText(TeamRecordData.getAnotherteam());
+            itemHolder.textScore.setText(TeamRecordData.getScore());
+            itemHolder.textresult.setText(TeamRecordData.getresult());
+            itemHolder.textDate.setText(TeamRecordData.getDate());
+            itemHolder.textViewMVP.setText(TeamRecordData.getMVP());
         }
-
-        TeamRecordInsertData TeamRecordData = TeamRecordList.get(position);
-
-        holder.textViewTeamName.setText(TeamRecordData.getTeamName());
-        holder.textViewTeamArea.setText(TeamRecordData.getTeamArea());
-        holder.textScore.setText(TeamRecordData.getScore());
-        holder.textresult.setText(TeamRecordData.getresult());
-        holder.textDate.setText(TeamRecordData.getDate());
-
     }
 
     @Override
@@ -69,16 +82,27 @@ public class TeamRecordInfoAdapter extends RecyclerView.Adapter<TeamRecordInfoAd
         }
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView textViewTeamName, textViewTeamArea, textScore, textresult, textDate;
-        public ViewHolder(@NonNull View itemView) {
+    public static class HeaderViewHolder extends RecyclerView.ViewHolder {
+        public TextView textViewAnotherTeam, textScore, textresult, textDate, textViewMVP;
+        public HeaderViewHolder(@NonNull View itemView) {
             super(itemView);
-            textViewTeamName = itemView.findViewById(R.id.textViewTeamName);
-            textViewTeamArea = itemView.findViewById(R.id.textViewTeamArea);
+            textViewAnotherTeam = itemView.findViewById(R.id.textViewAnotherTeam);
             textScore = itemView.findViewById(R.id.textScore);
             textresult = itemView.findViewById(R.id.textresult);
             textDate = itemView.findViewById(R.id.textDate);
+            textViewMVP = itemView.findViewById(R.id.textViewMVP);
+        }
+    }
+
+    public static class ItemViewHolder extends RecyclerView.ViewHolder {
+        public TextView textViewAnotherTeam, textScore, textresult, textDate, textViewMVP;
+        public ItemViewHolder(@NonNull View itemView) {
+            super(itemView);
+            textViewAnotherTeam = itemView.findViewById(R.id.textViewAnotherTeam);
+            textScore = itemView.findViewById(R.id.textScore);
+            textresult = itemView.findViewById(R.id.textresult);
+            textDate = itemView.findViewById(R.id.textDate);
+            textViewMVP = itemView.findViewById(R.id.textViewMVP);
         }
     }
 }
-

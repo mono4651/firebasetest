@@ -95,6 +95,7 @@ public class Gaip extends AppCompatActivity {
                     Toast.makeText(Gaip.this, "회원 가입 성공!", Toast.LENGTH_SHORT).show();
                     clearInputFields();
                     Intent intent = new Intent(Gaip.this, MainPage.class);
+                    intent.putExtra("userId",userId);
                     startActivity(intent);
                 })
                 .addOnFailureListener(e -> {

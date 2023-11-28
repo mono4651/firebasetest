@@ -1,33 +1,39 @@
 package com.test.firebasetest;
 
 public class TeamRecordInsertData {
-    private String TeamName, TeamArea, Score, result,Date;
+    public String team, area, scoreText, resultText,dateText,anotherTeamText, mvpText;
 
     // 기본 생성자
     public TeamRecordInsertData(){ }
-
-    public TeamRecordInsertData(String TeamName, String TeamArea, String Score, String result, String Date){
-        this.TeamName = TeamName;
-        this.TeamArea = TeamArea;
-        this.Score = Score;
-        this.result = result;
-        this.Date = Date;
-
+    public TeamRecordInsertData(String team, String area, String scoreText, String resultText, String dateText, String anotherTeamText, String mvpText){
+        this.team = team;
+        this.area = area;
+        this.scoreText = scoreText;
+        this.resultText = resultText;
+        this.dateText = dateText;
+        this.anotherTeamText = anotherTeamText;
+        this.mvpText = mvpText;
     }
 
-    public String getTeamName() {return TeamName; }
-    public void setTeamName(String TeamName) {this.TeamName = TeamName;}
+    public String getTeamName() {return team; }
+    public void setTeamName(String team) {this.team = team;}
 
-    public String getTeamArea() {return TeamArea; }
-    public void setTeamArea(String TeamArea) {this.TeamArea = TeamArea;}
+    public String getTeamArea() {return area; }
+    public void setTeamArea(String area) {this.area = area;}
 
 
-    public String getScore() {return Score; }
-    public void setScore(String Score) {this.Score = Score;}
+    public String getScore() {return scoreText; }
+    public void setScore(String scoreText) {this.scoreText = scoreText;}
 
-    public String getresult() {return result; }
-    public void setresult(String result) {this.result = result;}
+    public String getresult() {return resultText; }
+    public void setresult(String resultText) {this.resultText = resultText;}
 
-    public String getDate() {return Date; }
-    public void setDate(String Date) {this.Date = Date;}
+    public String getDate() {return dateText; }
+    public void setDate(String dateText) {this.dateText = dateText;}
+
+    public String getAnotherteam() {return anotherTeamText; }
+    public void setAnotherteam(String anotherTeamText) {this.anotherTeamText = anotherTeamText;}
+
+    public String getMVP() {return mvpText; }
+    public void setMVP(String mvpText) {this.mvpText = mvpText;}
 }

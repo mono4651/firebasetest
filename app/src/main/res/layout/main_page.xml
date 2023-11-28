@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bae">
+    android:background="@drawable/mu">
 
     <TextView
         android:layout_width="match_parent"
@@ -11,7 +11,8 @@
         android:text="메뉴 버튼 클릭 혹은 위로 스크롤"
         android:textColor="#ffffff"
         android:gravity="center"
-        android:textSize="20dp"/>
+        android:textSize="20sp"/>
+
     <TextView
         android:id="@+id/test"
         android:layout_width="match_parent"
@@ -19,7 +20,7 @@
         android:text="id"
         android:textColor="#ffffff"
         android:gravity="center"
-        android:textSize="50dp"/>
+        android:textSize="50sp"/>
 
     <SlidingDrawer
         android:id="@+id/slidingDrawer1"
@@ -28,109 +29,137 @@
         android:content="@+id/content"
         android:handle="@+id/handle">
 
-        <android.widget.Button
+        <ImageView
             android:id="@+id/handle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Menu" />
+            android:src="@drawable/infobtn" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <LinearLayout
             android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#A9D8E6"
             android:gravity="center"
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="horizontal"
+                android:orientation="vertical"
+                android:layout_gravity="center"
                 android:clickable="true"
-                android:background="?android:attr/selectableItemBackground"
                 android:id="@+id/teamInfo">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:id="@+id/v1"
+                    android:layout_width="412dp"
+                    android:layout_height="99dp"
                     android:text="선수단 정보"
-                    android:gravity="center" />
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:textSize="24sp"
+                    android:background="@drawable/textview_border"
+                    android:textStyle="bold"
+                    />
 
             </LinearLayout>
             <!-- 첫번째 레이아웃 -->
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 android:clickable="true"
-                android:background="?android:attr/selectableItemBackground"
                 android:id="@+id/teamRecord">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="경기 기록"
-                    android:gravity="center" />
+                    android:id="@+id/v2"
+                    android:layout_width="412dp"
+                    android:layout_height="99dp"
+                    android:text="팀 기록"
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:textSize="24sp"
+                    android:background="@drawable/textview_border"
+                    android:textStyle="bold"
+                    />
 
             </LinearLayout>
             <!-- 두 번째 레이아웃 -->
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 android:clickable="true"
-                android:background="?android:attr/selectableItemBackground"
                 android:id="@+id/teamSchedule">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="팀 스케줄"
-                    android:gravity="center" />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:clickable="true"
-                android:background="?android:attr/selectableItemBackground"
-                android:id="@+id/gallery">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="경기후기 작성"
-                    android:gravity="center" />
+                    android:id="@+id/v3"
+                    android:layout_width="412dp"
+                    android:layout_height="99dp"
+                    android:text="개인 일정"
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:textSize="24sp"
+                    android:background="@drawable/textview_border"
+                    android:textStyle="bold"
+                    />
 
             </LinearLayout>
             <!-- 세 번째 레이아웃 -->
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 android:clickable="true"
-                android:background="?android:attr/selectableItemBackground"
-                android:id="@+id/player_record">
+                android:id="@+id/gallery">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="개인 순위"
-                    android:gravity="center" />
+                    android:id="@+id/v4"
+                    android:layout_width="412dp"
+                    android:layout_height="99dp"
+                    android:text="경기 후기 작성"
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:textSize="24sp"
+                    android:background="@drawable/textview_border"
+                    android:textStyle="bold"
+                    />
 
             </LinearLayout>
             <!-- 네 번째 레이아웃 -->
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:id="@+id/player_record">
 
+                <TextView
+                    android:id="@+id/v5"
+                    android:layout_width="412dp"
+                    android:layout_height="99dp"
+                    android:text="팀 MVP순위"
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:textSize="24sp"
+                    android:background="@drawable/textview_border"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
             <!-- 다섯 번째 레이아웃 -->
 
         </LinearLayout>

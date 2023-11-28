@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -14,9 +19,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="팀 정보 보기"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:text="팀 정보 입력"
+            />
 
     </LinearLayout>
 
@@ -29,45 +33,32 @@
 
         <EditText
             android:id="@+id/teamName"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="팀 명을 입력하세요"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
+            android:layout_margin="10dp"
             />
 
         <EditText
             android:id="@+id/teamArea"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="지역을 입력하세요"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"/>
+            android:layout_margin="10dp"/>
+
+        <EditText
+            android:gravity="center|top"
+            android:id="@+id/teamIntro"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:hint="간단한 소개를 입력하세요"
+            android:layout_margin="10dp"/>
 
         <android.widget.Button
-            android:id="@+id/showBtn"
+            android:id="@+id/storeBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="팀 정보 보기"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            />
-
-        <android.widget.Button
-            android:id="@+id/backBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="뒤로가기"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewPlayerInfo"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:padding="16dp" />
-
+            android:text="저장하기"/>
     </LinearLayout>
 </LinearLayout>
+</FrameLayout>
